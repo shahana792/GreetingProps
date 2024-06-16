@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greeting Components</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>    
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: url("img1.jpg") no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .main-div {
+            margin-top: 5%;
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .main1, .main2 {
+            width:px;
+            background-color: rgba(177, 136, 180, 0.8);
+            border: 3px solid rgba(83, 6, 92, 0.945);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 0 20px #d878e0cf;
+            color: rgb(72, 9, 83);
+            border-radius: 20px;
+            padding: 20px 0px;
+            margin-bottom: 22px;
+        }
+
+        .main1 h1, .main2 h1 {
+            margin-top: 0;
+            font-size: 28px;
+            font-weight: bold;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .main1 h4, .main2 h4 {
+            margin-bottom: 0;
+            font-size: 16px;
+            color:  rgb(72, 9, 83);
+        }
+    </style>
+</head>
+<body>
+    <div class="main-div">
+        <div id="root">Must Change</div>
+
+        <script type="text/babel">
+            let rootnode = ReactDOM.createRoot(document.getElementById('root'));
+
+            let GreetingByFunc = (props) => {
+                return (
+                    <div class="main1">
+                        <h1>Hello, {props.name} !!!!</h1>
+                        <h4>This is the 'Greetings' functional component</h4>
+                    </div>
+                );
+            }
+
+            class GreetWithClass extends React.Component {
+                render() {
+                    return (
+                        <div class="main2">
+                            <h1>Hello, {this.props.name} !!!!</h1>
+                            <h4>This is the 'Greetings' class component</h4>
+                        </div>
+                    );
+                }
+            }
+
+            rootnode.render(
+                <div>
+                    <GreetingByFunc name="Sireesa Mam" />
+                    <GreetWithClass name="Vikash Sir" />
+                </div>
+            );
+        </script>
+
+    </div>
+</body>
+</html>
